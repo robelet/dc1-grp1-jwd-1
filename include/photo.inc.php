@@ -11,7 +11,9 @@
         <?php if (count($liste_tags) > 0) : ?>
             <p>
                 <?php foreach ($liste_tags as $tag) : ?>
-                    # <?php echo $tag["titre"]; ?>
+                    <a href="tag.php?id=<?php echo $tag["id"]; ?>">
+                        # <?php echo $tag["titre"]; ?>
+                    </a>
                 <?php endforeach; ?>
             </p>
         <?php endif; ?>
