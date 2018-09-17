@@ -6,6 +6,7 @@ $id = $_GET["id"];
 
 $photo = getPhoto($id);
 $liste_commentaires = getAllCommentairesByPhoto($id);
+$liste_tags = getAllTagsByPhoto($id);
 
 getHeader($photo["titre"], "Description de la photo");
 ?>
@@ -20,6 +21,12 @@ getHeader($photo["titre"], "Description de la photo");
 
     <h1><?php echo $photo["titre"]; ?></h1>
     <img src="images/<?php echo $photo["image"] ?>">
+    
+    <?php foreach ($liste_tags as $tag) : ?>
+        <a href="tag.php?id=<?php echo $id; ?>">
+            <?php echo $tag["titre"]?>
+    <?php endforeach; ?>
+    
     <p><?php echo $photo["description"] ?></p>
     
     <form method="POST" action="insert-commentaire.php">
